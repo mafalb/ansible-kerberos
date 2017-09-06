@@ -1,0 +1,12 @@
+---
+
+- debug: msg="{{ kerberos_cfg }}"
+- name: kerberos client config
+  template:
+    src: "{{ item }}"
+    dest: "/etc/krb5.conf"
+    backup: yes
+    validate: true
+  with_first_found:
+    - "{{ playbook_dir }}/templates/{{ kerberos_cfg }}.j2"
+    - "{{ kerberos_cfg }}.j2"
