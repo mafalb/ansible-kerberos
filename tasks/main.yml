@@ -6,7 +6,7 @@
     src: "{{ item }}"
     dest: "/etc/krb5.conf"
     backup: yes
-    validate: true
+    validate: "true %s"
   with_first_found:
     - "{{ playbook_dir }}/templates/{{ kerberos_cfg }}.j2"
     - "{{ kerberos_cfg }}.j2"
