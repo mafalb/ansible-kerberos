@@ -1,6 +1,5 @@
 ---
 
-- debug: msg="{{ kerberos_cfg }}"
 - name: kerberos client config
   template:
     src: "{{ item }}"
@@ -8,5 +7,6 @@
     backup: yes
     validate: "true %s"
   with_first_found:
-    - "{{ playbook_dir }}/templates/{{ kerberos_cfg }}.j2"
+    - "{{ playbook_dir }}/files/{{ cfg }}"
+    - "{{ playbook_dir }}/templates/{{ cfg }}.j2"
     - "{{ kerberos_cfg }}.j2"
